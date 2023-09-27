@@ -60,7 +60,7 @@ V2SCD_Main: Translating netlist Verilog (.v) file to simple circuit description 
                                         file address.
 ```
 # Run:
-Generate p_init.text as follows:\\
+Generate p_init.text as follows:\n
 First, go to your benchmark directory:
 ```
   $ cd <benchmark_directory>
