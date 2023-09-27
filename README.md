@@ -1,6 +1,5 @@
 # GarbledEDA
- Garbled EDA is a framework built based on the TinyGarble framework and allows IP owners to secure their IPs in end-users hands.
- GarbledEDA also allows end-users to simulate, synthesize, and implement the IP design without revealing any information about the IP functionality or proprietary inputs.
+ Garbled EDA is a framework built based on the TinyGarble framework and allows IP owners to secure their IPs in end-users hands. GarbledEDA also allows end-users to simulate, synthesize, and implement the IP design without revealing any information about the IP functionality or proprietary inputs. For more information, please refer to [Garbled EDA: Privacy Preserving Electronic Design Automation](https://dl.acm.org/doi/abs/10.1145/3508352.3549455).
 # Dependencies:
 Install dependencies on Ubuntu:
 g++: 
