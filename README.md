@@ -42,12 +42,12 @@ Cross-compiler:
   $ apt-file search -x 'gcc$' | grep 'gcc-arm-linux-gnueabi'
 ```
 # Install dependencies on Windows: 
-ARMSIM:
-  ARMSim/Installer.msi
-QtSpim:
-  QtSpim/QtSpim_9.1.24_Windows.msi
-v2c:
-  Extract v2c-bin.tar.gz and use cmake.
+1.ARMSIM:
+1.  ARMSim/Installer.msi
+1. QtSpim:
+1.  QtSpim/QtSpim_9.1.24_Windows.msi
+1. v2c:
+1.  Extract v2c-bin.tar.gz and use cmake.
 # SCD generation:
 V2SCD_Main: Translating netlist Verilog (.v) file to simple circuit description (.scd) file
 ```
@@ -60,13 +60,18 @@ V2SCD_Main: Translating netlist Verilog (.v) file to simple circuit description 
                                         file address.
 ```
 # Run:
-Generate p_init.text as follows:
+Generate p_init.text as follows:\\
+First, go to your benchmark directory:
 ```
   $ cd <benchmark_directory>
+```
+Then compile the source code and write the Assembly instructions to ```p_init```:
+```
   $ GarbledEDA/TinyGarble/bin/garbled_circuit/TinyGarble -a -i GarbledEDA/TinyGarble/bin/scd/netlists/a23_gc_main_64_w_n_cc.scd --p_init a23/<benchmark_directory>/p.txt --init a23/<benchmark_directory>/test/g.txt -c 1000 -t 1 --log2std
 ```
-Provide the p_init.text, e_init.text, and g_init.text to GarbledEDA/ARM_Garbled_Evaluator_Core/ARM_Garbled_Core_gc_main.v for ARM or GarbledEDA/MIPS_Garbled_Evaluator_Core/Garbled_MIPS_netlist.v for MIPS.
-Synthesize and run the ARM_Garbled_Core_gc_main.v for ARM or GarbledEDA/MIPS_Garbled_Evaluator_Core/Garbled_MIPS_netlist.v for MIPS.
+Last step:
+Provide the ```p_init```, ```e_init```, and ```g_init``` to ```GarbledEDA/ARM_Garbled_Evaluator_Core/ARM_Garbled_Core_gc_main.v``` for ARM or ```GarbledEDA/MIPS_Garbled_Evaluator_Core/Garbled_MIPS_netlist.v for MIPS```.
+Synthesize and run the ```ARM_Garbled_Core_gc_main.v``` for ARM or ```GarbledEDA/MIPS_Garbled_Evaluator_Core/Garbled_MIPS_netlist.v``` for MIPS.
 # References:
 1. Ebrahim M. Songhori, Siam U. Hussain, Ahmad-Reza Sadeghi, Thomas Schneider and Farinaz Koushanfar, "TinyGarble: Highly Compressed and Scalable Sequential Garbled Circuits." Security and Privacy, 2015 IEEE Symposium on May, 2015.
 1. Mukherjee, Rajdeep, Michael Tautschnig, and Daniel Kroening. "v2c–A verilog to C translator." Tools and Algorithms for the Construction and Analysis of Systems: 22nd International Conference, TACAS 2016, Held as Part of the European Joint Conferences on Theory and Practice of Software, ETAPS 2016, Eindhoven, The Netherlands, April 2-8, 2016, Proceedings 22. Springer Berlin Heidelberg, 2016.
