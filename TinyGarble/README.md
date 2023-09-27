@@ -1,37 +1,3 @@
-[![Build Status](https://travis-ci.org/esonghori/TinyGarble.svg?branch=develop)](https://travis-ci.org/esonghori/TinyGarble)
-
-TinyGarble
-=======
-TinyGarble is a full implementation of 
-[Yao's Garbled Circuit (GC) protocol](https://en.wikipedia.org/wiki/Garbled_Circuit) for
-two-party Secure Function Evaluation (SFE) in which the parties are able to
-execute any function on their private inputs and learn the output without
-leaking any information about their inputs.
-This repository consists of two main parts: (1) circuit synthesis (output examples 
-of this is stored in `scd/netlist/v.tar.bz` and will be unzipped and translated in 
-`bin/scd/netlist/` after `make`) and (2) secure function evaluation.
-Circuit synthesis is partially described in TinyGarble paper in IEEE S&P'15 (see
-References). It is based on upon hardware synthesis and sequential circuit
-concept and outputs a netlist Verilog (`.v`) file (not included in this repository). 
-The other part of TinyGarble, hereafter called "TinyGarble", is a GC framework 
-implemented based on [JustGarble](http://cseweb.ucsd.edu/groups/justgarble/)
-project. Beside Free-XOR, Row-reduction, OT extension, and
-Fixed-key block cipher, TinyGarble includes Half Gates which is the most recent
-optimization on GC protocol and reduces the communication by 33%.
-TinyGarble also includes communication and Oblivious Transfer (OT) which were
-missing in JustGarble. Note that OT is a crucial part for the security of the GC 
-protocol.
-
-TinyGarble general flow:
-1. Write a Verilog file (`.v`) describing the function.
-2. Synthesis the Verilog file using TinyGarble's [*circuit synthesis*](circuit_synthesis/README.md) to generate
-a netlist Verilog file (`.v`).
-3. Translate the netlist file (`.v`) to a simple circuit description file
-([SCD](scd/README.md)) using TinyGarble's `V2SCD_Main` and then provide both parties with the
-file. (We have done steps 1-3 for a number of functions, and you can find their scd files after compiling in `bin/scd/netlists/`.)
-4. Execute `TinyGarble` using `--alice` flag on one party and `--bob` flag
-on the other plus other appropriate arguments.
-
 # Circuit Synthesis
 
 ## Dependencies
@@ -116,8 +82,42 @@ written in "benchmark\_syn.v"
 ```	
 [Note: commands starting with "yosys>" should be called inside design_vision.
 Please ignore "yosys>" for them.]
+[![Build Status](https://travis-ci.org/esonghori/TinyGarble.svg?branch=develop)](https://travis-ci.org/esonghori/TinyGarble)
+
+TinyGarble
+=======
+TinyGarble is a full implementation of 
+[Yao's Garbled Circuit (GC) protocol](https://en.wikipedia.org/wiki/Garbled_Circuit) for
+two-party Secure Function Evaluation (SFE) in which the parties are able to
+execute any function on their private inputs and learn the output without
+leaking any information about their inputs.
+This repository consists of two main parts: (1) circuit synthesis (output examples 
+of this is stored in `scd/netlist/v.tar.bz` and will be unzipped and translated in 
+`bin/scd/netlist/` after `make`) and (2) secure function evaluation.
+Circuit synthesis is partially described in TinyGarble paper in IEEE S&P'15 (see
+References). It is based on upon hardware synthesis and sequential circuit
+concept and outputs a netlist Verilog (`.v`) file (not included in this repository). 
+The other part of TinyGarble, hereafter called "TinyGarble", is a GC framework 
+implemented based on [JustGarble](http://cseweb.ucsd.edu/groups/justgarble/)
+project. Beside Free-XOR, Row-reduction, OT extension, and
+Fixed-key block cipher, TinyGarble includes Half Gates which is the most recent
+optimization on GC protocol and reduces the communication by 33%.
+TinyGarble also includes communication and Oblivious Transfer (OT) which were
+missing in JustGarble. Note that OT is a crucial part for the security of the GC 
+protocol.
+
+TinyGarble general flow:
+1. Write a Verilog file (`.v`) describing the function.
+2. Synthesis the Verilog file using TinyGarble's [*circuit synthesis*](circuit_synthesis/README.md) to generate
+a netlist Verilog file (`.v`).
+3. Translate the netlist file (`.v`) to a simple circuit description file
+([SCD](scd/README.md)) using TinyGarble's `V2SCD_Main` and then provide both parties with the
+file. (We have done steps 1-3 for a number of functions, and you can find their scd files after compiling in `bin/scd/netlists/`.)
+4. Execute `TinyGarble` using `--alice` flag on one party and `--bob` flag
+on the other plus other appropriate arguments.
 
 gates."](http://eprint.iacr.org/2014/756)
 In <i>Eurocrypt, 2015</i>.
 - G. Asharov, Y. Lindell, T. Schneider and M. Zohner: More Efficient Oblivious
 Transfer and Extensions for Faster Secure Computation In <i>CCS'13</i>.
+
