@@ -42,12 +42,9 @@ Cross-compiler:
   $ apt-file search -x 'gcc$' | grep 'gcc-arm-linux-gnueabi'
 ```
 # Install dependencies on Windows: 
-1.ARMSIM:  
-  ARMSim/Installer.msi
-1. QtSpim:  
-  QtSpim/QtSpim_9.1.24_Windows.msi
-1. v2c:  
-  Extract v2c-bin.tar.gz and use cmake.
+1. ARMSIM: ARMSim/Installer.msi
+1. QtSpim: QtSpim/QtSpim_9.1.24_Windows.msi
+1. v2c: Extract v2c-bin.tar.gz and use cmake.
 # SCD generation:
 V2SCD_Main: Translating netlist Verilog (.v) file to simple circuit description (.scd) file
 ```
