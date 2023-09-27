@@ -8,36 +8,49 @@ g++:
  $ sudo apt-get install g++
 ```
 OpenSSL: 
+```
   $ sudo apt-get install libssl-dev
- boost: 
+```
+boost:
+```
   $ sudo apt-get install libboost-all-dev
- cmake:
+```
+cmake:
+```
   $ sudo apt-get install software-properties-common
   $ sudo add-apt-repository ppa:george-edison55/cmake-3.x
   $ sudo apt-get update
   $ sudo apt-get upgrade
   $ sudo apt-get install cmake
- TinyGarble:
+```
+TinyGarble:
+```
   $ cd TintGarbe 
   $./configure
   $ cd bin
   $ make
- ARM2GC:
+```
+ARM2GC:
+```
   $ sudo apt install binutils-arm-linux-gnueabi
   $ sudo apt install gcc-arm-linux-gnueabi
- Cross-compiler:
+```
+Cross-compiler:
+```
   $ sudo apt-get install apt-file
   $ sudo apt-file update
   $ apt-file search -x 'gcc$' | grep 'gcc-arm-linux-gnueabi'
+```
 # Install dependencies on Windows: 
- ARMSIM:
-ARMSim/Installer.msi
- QtSpim:
-QtSpim/QtSpim_9.1.24_Windows.msi
- v2c:
-use v2c-bin.tar.gz
+ARMSIM:
+  ARMSim/Installer.msi
+QtSpim:
+  QtSpim/QtSpim_9.1.24_Windows.msi
+v2c:
+  Extract v2c-bin.tar.gz and use cmake.
 # SCD generation:
- V2SCD_Main: Translating netlist Verilog (.v) file to simple circuit description (.scd) file
+V2SCD_Main: Translating netlist Verilog (.v) file to simple circuit description (.scd) file
+```
   -h [ --help ]                         produce help message.
   -i [ --netlist ]
                                         Input netlist (verilog .v) file
@@ -45,10 +58,13 @@ use v2c-bin.tar.gz
   -o [ --scd ]
                                         Output simple circuit description (scd)
                                         file address.
+```
 # Run:
- Generate p_init.text as follows:
-$ cd <benchmark_directory>
-$ GarbledEDA/TinyGarble/bin/garbled_circuit/TinyGarble -a -i GarbledEDA/TinyGarble/bin/scd/netlists/a23_gc_main_64_w_n_cc.scd --p_init a23/<benchmark_directory>/p.txt --init a23/<benchmark_directory>/test/g.txt -c 1000 -t 1 --log2std
+Generate p_init.text as follows:
+```
+  $ cd <benchmark_directory>
+  $ GarbledEDA/TinyGarble/bin/garbled_circuit/TinyGarble -a -i GarbledEDA/TinyGarble/bin/scd/netlists/a23_gc_main_64_w_n_cc.scd --p_init a23/<benchmark_directory>/p.txt --init a23/<benchmark_directory>/test/g.txt -c 1000 -t 1 --log2std
+```
 Provide the p_init.text, e_init.text, and g_init.text to GarbledEDA/ARM_Garbled_Evaluator_Core/ARM_Garbled_Core_gc_main.v for ARM or GarbledEDA/MIPS_Garbled_Evaluator_Core/Garbled_MIPS_netlist.v for MIPS.
 Synthesize and run the ARM_Garbled_Core_gc_main.v for ARM or GarbledEDA/MIPS_Garbled_Evaluator_Core/Garbled_MIPS_netlist.v for MIPS.
 # References:
