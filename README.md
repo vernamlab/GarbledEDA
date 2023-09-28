@@ -56,6 +56,10 @@ V2SCD_Main: Translating netlist Verilog (.v) file to simple circuit description 
                                         file address.
 ```
 # Run:
+For circuit synthesize go to this directory:
+``` 
+$cd TinyGarble/circuit_synthesis
+```
 Generate p_init.text as follows:  
 First, go to your benchmark directory:
 ```
