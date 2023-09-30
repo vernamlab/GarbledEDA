@@ -73,7 +73,8 @@ Last step:
 Provide the ```p_init```, ```e_init```, and ```g_init``` to ```GarbledEDA/ARM_Garbled_Evaluator_Core/ARM_Garbled_Core_gc_main.v``` for ARM or ```GarbledEDA/MIPS_Garbled_Evaluator_Core/Garbled_MIPS_netlist.v for MIPS```.  
 Synthesize and run the ```ARM_Garbled_Core_gc_main.v``` for ARM or ```GarbledEDA/MIPS_Garbled_Evaluator_Core/Garbled_MIPS_netlist.v``` for MIPS.
 # References:
-How to cite this code: @inproceedings{hashemi2022garbled,
+How to cite this code: 
+@inproceedings{hashemi2022garbled,
   title={Garbled EDA: Privacy Preserving Electronic Design Automation},
   author={Hashemi, Mohammad and Roy, Steffi and Ganji, Fatemeh and Forte, Domenic},
   booktitle={Proceedings of the 41st IEEE/ACM International Conference on Computer-Aided Design},
